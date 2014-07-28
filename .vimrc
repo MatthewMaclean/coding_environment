@@ -2,13 +2,29 @@
 " => VIM user interface
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Cursor stuff
-set ruler
 set ttyfast
 set laststatus=2
+set ruler
 
 " Show line number
 set number
-set norelativenumber
+set relativenumber
+
+function! NumberToggle()
+    if(&relativenumber == 1)
+      set norelativenumber
+    else
+      set relativenumber
+    endif
+endfunc
+
+set relativenumber
+nnoremap <C-a> :call NumberToggle()<cr>
+
+au FocusLost * :set norelativenumber
+au FocusGained * :set relativenumber
+au InsertEnter * :set norelativenumber
+au InsertLeave * :set relativenumber
 
 " A buffer becomes hidden when it is abandoned
 set hid
@@ -38,7 +54,7 @@ set tm=500
 set title
 
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Colors and Fonts
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Enable syntax highlighting
@@ -58,6 +74,7 @@ set ffs=unix,dos,mac
 
 " Set colour column at 80 for line length "
 set colorcolumn=80
+
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Text, tab and indent related
@@ -80,19 +97,12 @@ set wrap "Wrap lines
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Moving around, tabs, windows and buffers
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Make sure line isn't at edge of window
+set scrolloff=5
+
 " Treat long lines as break lines (useful when moving around in them)
 map j gj
 map k gk
-
-" Switch CWD to the directory of the open buffer
-map <leader>cd :cd %:p:h<cr>:pwd<cr>
-
-" Specify the behavior when switching between buffers
-try
-  set switchbuf=useopen,usetab,newtab
-  set stal=2
-catch
-endtry
 
 " Return to last edit position when opening files (You want this!)
 autocmd BufReadPost *
@@ -111,15 +121,18 @@ set undoreload=1000 " max number of lines to save
 " Dont change buffer when replace-pasting
 vnoremap p "_c<C-r>"<Esc>
 
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => On save
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
 " Remove trailing whitespace
 autocmd BufWritePre * :%s/\s\+$//e
+
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Plugins
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
 execute pathogen#infect()
+
+" buftabs configuration
+let g:buftabs_in_statusline=1
