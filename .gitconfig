@@ -1,0 +1,7 @@
+[user]
+	name = MatthewMaclean
+	email = matthewcmaclean@gmail.com
+[credential]
+	helper = cache
+[color]
+	diff = always

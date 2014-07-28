@@ -1,6 +1,7 @@
 *
 !.vim/colors/*
 !.gitignore
+!.gitconfig
 !.bashrc
 !.bash_profile
 !.vimrc
