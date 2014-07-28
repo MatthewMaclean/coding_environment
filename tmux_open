@@ -1,7 +1,7 @@
 #!/bin/sh
 
 SESSIONNAME="NAME"
-DIRECTORY="PATH"
+DIRECTORY="~"
 tmux has-session -t $SESSIONNAME
 
 if [ $? != 0 ]
@@ -13,9 +13,6 @@ if [ $? != 0 ]
         tmux split-window -v
         tmux send-keys -t $SESSIONNAME "cd " $DIRECTORY C-m
         tmux select-pane -L
-        tmux split-window -v
-        tmux send-keys -t $SESSIONNAME "cd " $DIRECTORY C-m
-        tmux select-pane -U
 fi
 
 tmux attach -t $SESSIONNAME
