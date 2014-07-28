@@ -1,11 +1,14 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => VIM user interface
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Always show current position
+" Cursor stuff
 set ruler
+set ttyfast
+set laststatus=2
 
 " Show line number
 set number
+set norelativenumber
 
 " A buffer becomes hidden when it is abandoned
 set hid
@@ -30,6 +33,10 @@ set noerrorbells
 set novisualbell
 set t_vb=
 set tm=500
+
+" set window title
+set title
+
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Colors and Fonts
@@ -95,8 +102,24 @@ autocmd BufReadPost *
 " Remember info about open buffers on close
 set viminfo^=%
 
+" setting u undofile
+set undodir=~/.vim/undodir
+set undofile
+set undolevels=1000 " max
+set undoreload=1000 " max number of lines to save
+
+" Dont change buffer when replace-pasting
+vnoremap p "_c<C-r>"<Esc>
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => On save
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
 " Remove trailing whitespace
 autocmd BufWritePre * :%s/\s\+$//e
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Plugins
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+execute pathogen#infect()
