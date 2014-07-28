@@ -1,0 +1,21 @@
+#!/bin/sh
+
+SESSIONNAME="NAME"
+DIRECTORY="PATH"
+tmux has-session -t $SESSIONNAME
+
+if [ $? != 0 ]
+    then
+        tmux new-session -s $SESSIONNAME -n $SESSIONNAME -d
+        tmux send-keys -t $SESSIONNAME "cd " $DIRECTORY C-m
+        tmux split-window -h
+        tmux send-keys -t $SESSIONNAME "cd " $DIRECTORY C-m
+        tmux split-window -v
+        tmux send-keys -t $SESSIONNAME "cd " $DIRECTORY C-m
+        tmux select-pane -L
+        tmux split-window -v
+        tmux send-keys -t $SESSIONNAME "cd " $DIRECTORY C-m
+        tmux select-pane -U
+fi
+
+tmux attach -t $SESSIONNAME

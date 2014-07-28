@@ -1,0 +1,11 @@
+*
+!.vim/colors/*
+!.gitignore
+!.bashrc
+!.bash_profile
+!.vimrc
+!.git-completion.bash
+!.dir_colors
+!.tmux.conf
+!tmux_open
+!.minttyrc
