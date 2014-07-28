@@ -121,6 +121,11 @@ set undoreload=1000 " max number of lines to save
 " Dont change buffer when replace-pasting
 vnoremap p "_c<C-r>"<Esc>
 
+" Make switching buffer easier to type
+for i in range(1, 40)
+    exe "map ;" . i . " :b" . i
+endfor
+
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => On save
