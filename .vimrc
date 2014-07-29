@@ -93,10 +93,23 @@ set ai "Auto indent
 set si "Smart indent
 set wrap "Wrap lines
 
+" Remove trailing whitespace on save
+autocmd BufWritePre * :%s/\s\+$//e
+
+" map sort function to a key
+vnoremap <Leader>s :sort<CR>
+
+" maintain selection for indent
+vnoremap < <gv
+vnoremap > >gv
+
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Moving around, tabs, windows and buffers
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Copy paste
+set clipboard=unnamed
+
 " Make sure line isn't at edge of window
 set scrolloff=5
 
@@ -121,11 +134,12 @@ set undoreload=10000 " max number of lines to save
 " Dont change buffer when replace-pasting
 vnoremap p "_c<C-r>"<Esc>
 
+let mapleader=";"
 for i in range(1, 100)
     " Make switching buffer easier to type
-    exe "map ;" . i . " :b" . i . "<CR>"
+    exe "map <leader>" . i . " :b" . i . "<CR>"
     " Make switching tabs easier to type
-    exe "map ;t" . i . " " . i . "gt<CR>"
+    exe "map <leader>t" . i . " " . i . "gt<CR>"
 endfor
 
 " Move vim windows
@@ -141,19 +155,14 @@ vnoremap <silent> <C-Left> <Left>
 vnoremap <silent> <C-Right> <Right>
 
 " window
-noremap ;h  <C-w>s<CR>
-noremap ;v  <C-w>v<CR>
+noremap <leader>h  <C-w>s<CR>
+noremap <leader>v  <C-w>v<CR>
 
 " tab
 nmap <C-t> :tabedit %<CR>
 nmap <C-w> :tabc<CR>
-
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => On save
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Remove trailing whitespace
-autocmd BufWritePre * :%s/\s\+$//e
+nmap <leader><Tab> :tabn<CR>
+nmap <leader><S-Tab> :tabp<CR>
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
