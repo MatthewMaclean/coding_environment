@@ -19,7 +19,7 @@ function! NumberToggle()
 endfunc
 
 set relativenumber
-nnoremap <C-a> :call NumberToggle()<CR>
+nnoremap <silent> <C-a> :call NumberToggle()<CR>
 
 au FocusLost * :set norelativenumber
 au FocusGained * :set relativenumber
@@ -116,15 +116,35 @@ set viminfo^=%
 set undodir=~/.vim/undodir
 set undofile
 set undolevels=1000 " max
-set undoreload=1000 " max number of lines to save
+set undoreload=10000 " max number of lines to save
 
 " Dont change buffer when replace-pasting
 vnoremap p "_c<C-r>"<Esc>
 
 " Make switching buffer easier to type
-for i in range(1, 40)
-    exe "map ;" . i . " :b" . i
+for i in range(1, 100)
+    exe "map ;" . i . " :b" . i . "<CR>"
 endfor
+
+" Move vim windows
+nmap <silent> <Up> :wincmd k<CR>
+nmap <silent> <Down> :wincmd j<CR>
+nmap <silent> <Left> :wincmd h<CR>
+nmap <silent> <Right> :wincmd l<CR>
+
+" Up down alternatives
+vnoremap <silent> <C-Up> <Up>
+vnoremap <silent> <C-Down> <Down>
+vnoremap <silent> <C-Left> <Left>
+vnoremap <silent> <C-Right> <Right>
+
+" window
+noremap ;h  <C-w>s<CR>
+noremap ;v  <C-w>v<CR>
+
+" tab
+nmap <C-t> :tabedit %<CR>
+nmap <C-w> :tabc<CR>
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -141,8 +161,12 @@ execute pathogen#infect()
 
 " buftabs configuration
 let g:buftabs_in_statusline=1
+let g:buftabs_marker_modified='[+]'
+let g:buftabs_marker_start='<'
+let g:buftabs_marker_end='>'
 
 " nerdtree configuration
 map <C-n> :NERDTreeToggle<CR>
 let g:NERDTreeIgnore=['\.swp$', '\.o$', '\.d$', '\.pyc$']
 let g:NERDTreeQuitOnOpen=1
+let g:NERDTreeShowHidden=1

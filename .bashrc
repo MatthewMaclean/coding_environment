@@ -7,4 +7,4 @@ fi
 
 eval `dircolors ~/.dir_colors`
 
-alias ls="ls --color"
+alias ls="ls -a --color"

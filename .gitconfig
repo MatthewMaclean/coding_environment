@@ -5,3 +5,5 @@
 	helper = cache
 [color]
 	diff = always
+[core]
+	excludesfile = /home/Matt/.gitignore
