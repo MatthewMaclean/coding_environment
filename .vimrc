@@ -141,3 +141,8 @@ execute pathogen#infect()
 
 " buftabs configuration
 let g:buftabs_in_statusline=1
+
+" nerdtree configuration
+map <C-n> :NERDTreeToggle<CR>
+let g:NERDTreeIgnore=['\.swp$', '\.o$', '\.d$', '\.pyc$']
+let g:NERDTreeQuitOnOpen=1
