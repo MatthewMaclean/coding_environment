@@ -19,7 +19,7 @@ function! NumberToggle()
 endfunc
 
 set relativenumber
-nnoremap <C-a> :call NumberToggle()<cr>
+nnoremap <C-a> :call NumberToggle()<CR>
 
 au FocusLost * :set norelativenumber
 au FocusGained * :set relativenumber
