@@ -137,16 +137,16 @@ vnoremap p "_c<C-r>"<Esc>
 let mapleader=";"
 for i in range(1, 100)
     " Make switching buffer easier to type
-    exe "map <leader>" . i . " :b" . i . "<CR>"
+    exe "noremap <leader>" . i . " :b" . i . "<CR>"
     " Make switching tabs easier to type
-    exe "map <leader>t" . i . " " . i . "gt<CR>"
+    exe "noremap <leader>t" . i . " " . i . "gt<CR>"
 endfor
 
 " Move vim windows
-nmap <silent> <Up> :wincmd k<CR>
-nmap <silent> <Down> :wincmd j<CR>
-nmap <silent> <Left> :wincmd h<CR>
-nmap <silent> <Right> :wincmd l<CR>
+nnoremap <silent> <Up> :wincmd k<CR>
+nnoremap <silent> <Down> :wincmd j<CR>
+nnoremap <silent> <Left> :wincmd h<CR>
+nnoremap <silent> <Right> :wincmd l<CR>
 
 " Up down alternatives
 vnoremap <silent> <C-Up> <Up>
@@ -159,10 +159,10 @@ noremap <leader>h  <C-w>s<CR>
 noremap <leader>v  <C-w>v<CR>
 
 " tab
-nmap <C-t> :tabedit %<CR>
-nmap <C-w> :tabc<CR>
-nmap <leader><Tab> :tabn<CR>
-nmap <leader><S-Tab> :tabp<CR>
+nnoremap <C-t> :tabedit %<CR>
+nnoremap <C-w> :tabc<CR>
+nnoremap <leader><Tab> :tabn<CR>
+nnoremap <leader><S-Tab> :tabp<CR>
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -178,7 +178,7 @@ let g:buftabs_marker_start='<'
 let g:buftabs_marker_end='>'
 
 " nerdtree configuration
-map <C-n> :NERDTreeToggle<CR>
+noremap <C-n> :NERDTreeToggle<CR>
 let g:NERDTreeIgnore=['\.swp$', '\.o$', '\.d$', '\.pyc$']
 let g:NERDTreeQuitOnOpen=1
 let g:NERDTreeShowHidden=1
