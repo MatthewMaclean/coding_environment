@@ -121,9 +121,11 @@ set undoreload=10000 " max number of lines to save
 " Dont change buffer when replace-pasting
 vnoremap p "_c<C-r>"<Esc>
 
-" Make switching buffer easier to type
 for i in range(1, 100)
+    " Make switching buffer easier to type
     exe "map ;" . i . " :b" . i . "<CR>"
+    " Make switching tabs easier to type
+    exe "map ;t" . i . " " . i . "gt<CR>"
 endfor
 
 " Move vim windows
