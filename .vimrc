@@ -169,6 +169,7 @@ nmap <leader><S-Tab> :tabp<CR>
 " => Plugins
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 execute pathogen#infect()
+filetype plugin indent on
 
 " buftabs configuration
 let g:buftabs_in_statusline=1
@@ -181,3 +182,13 @@ map <C-n> :NERDTreeToggle<CR>
 let g:NERDTreeIgnore=['\.swp$', '\.o$', '\.d$', '\.pyc$']
 let g:NERDTreeQuitOnOpen=1
 let g:NERDTreeShowHidden=1
+
+" python-mode configuration
+let g:pymode_lint_checker="pyflakes,pep8"
+let g:pymode_lint_unmodified=1
+let g:pymode_lint_cwindow=0
+let g:pymode_folding=0
+let g:pymode_motion=0
+let g:pymode_doc=0
+let g:pymode_breakpoint=0
+let g:pymode_rope=0
