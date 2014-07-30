@@ -53,6 +53,14 @@ set tm=500
 " set window title
 set title
 
+" swap : and ;
+map  ;  :
+
+" faster save and quit
+nnoremap  :w  :w<CR>
+nnoremap  :q  :q<CR>
+nnoremap  :wq  :wq<CR>
+
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Colors and Fonts
@@ -75,6 +83,19 @@ set ffs=unix,dos,mac
 " Set colour column at 80 for line length "
 set colorcolumn=80
 
+" Cause search to blink upon n
+nnoremap <silent> n   n:call HLNext(0.05)<cr>
+highlight WhiteOnRed ctermbg=black
+function! HLNext (blinktime)
+    let [bufnum, lnum, col, off] = getpos('.')
+    let matchlen = strlen(matchstr(strpart(getline('.'),col-1),@/))
+    let target_pat = '\c\%#'.@/
+    let ring = matchadd('WhiteOnRed', target_pat, 101)
+    redraw
+    exec 'sleep ' . float2nr(a:blinktime * 1000) . 'm'
+    call matchdelete(ring)
+    redraw
+endfunction
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Text, tab and indent related
@@ -102,6 +123,10 @@ vnoremap <Leader>s :sort<CR>
 " maintain selection for indent
 vnoremap < <gv
 vnoremap > >gv
+
+" highlight tabs and non-breaking spaces
+exec "set listchars=tab:\uBB\uBB,nbsp:~"
+set list
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -134,7 +159,7 @@ set undoreload=10000 " max number of lines to save
 " Dont change buffer when replace-pasting
 vnoremap p "_c<C-r>"<Esc>
 
-let mapleader=";"
+let mapleader="'"
 for i in range(1, 100)
     " Make switching buffer easier to type
     exe "noremap <leader>" . i . " :b" . i . "<CR>"
@@ -192,3 +217,7 @@ let g:pymode_motion=0
 let g:pymode_doc=0
 let g:pymode_breakpoint=0
 let g:pymode_rope=0
+
+" scala syntax highlighting
+au BufRead,BufNewFile *.scala set filetype=scala
+au! Syntax scala source ~/.vim/syntax/scala.vim
