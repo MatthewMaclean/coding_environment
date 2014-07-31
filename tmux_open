@@ -2,17 +2,17 @@
 
 SESSIONNAME="NAME"
 DIRECTORY="~"
+
+if { [ "$TERM" = "screen-256color" ] && [ -n "$TMUX" ]; } then
+    tmux send-keys -t $SESSIONNAME "cd " $DIRECTORY C-m
+    exit 0
+fi
+
 tmux has-session -t $SESSIONNAME
 
-if [ $? != 0 ]
-    then
-        tmux new-session -s $SESSIONNAME -n $SESSIONNAME -d
-        tmux send-keys -t $SESSIONNAME "cd " $DIRECTORY C-m
-        tmux split-window -h
-        tmux send-keys -t $SESSIONNAME "cd " $DIRECTORY C-m
-        tmux split-window -v
-        tmux send-keys -t $SESSIONNAME "cd " $DIRECTORY C-m
-        tmux select-pane -L
+if [ $? != 0 ] then
+    tmux new-session -s $SESSIONNAME -n $SESSIONNAME -d
+    tmux send-keys -t $SESSIONNAME "cd " $DIRECTORY C-m
 fi
 
 tmux attach -t $SESSIONNAME

@@ -120,10 +120,6 @@ autocmd BufWritePre * :%s/\s\+$//e
 " map sort function to a key
 vnoremap <Leader>s :sort<CR>
 
-" maintain selection for indent
-vnoremap < <gv
-vnoremap > >gv
-
 " highlight tabs and non-breaking spaces
 exec "set listchars=tab:\uBB\uBB,nbsp:~"
 set list
@@ -197,6 +193,7 @@ execute pathogen#infect()
 filetype plugin indent on
 
 " buftabs configuration
+let g:buftabs_only_basename=1
 let g:buftabs_in_statusline=1
 let g:buftabs_marker_modified='[+]'
 let g:buftabs_marker_start='<'

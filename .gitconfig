@@ -1,5 +1,5 @@
 [user]
-	name = MatthewMaclean
+	name = Matthew Maclean
 	email = matthewcmaclean@gmail.com
 [credential]
 	helper = cache
@@ -7,3 +7,4 @@
 	diff = always
 [core]
 	excludesfile = /home/Matt/.gitignore
+	editor = vim
