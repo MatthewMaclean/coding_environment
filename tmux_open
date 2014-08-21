@@ -3,6 +3,11 @@
 SESSIONNAME="NAME"
 DIRECTORY="~"
 
+if [ "$#" == 1 ]
+then
+    SESSIONNAME="$SESSIONNAME$1"
+fi
+
 if { [ "$TERM" = "screen-256color" ] && [ -n "$TMUX" ]; } then
     tmux send-keys -t $SESSIONNAME "cd " $DIRECTORY C-m
     exit 0
