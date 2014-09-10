@@ -10,20 +10,24 @@ set ruler
 set number
 set relativenumber
 
+function! NoRelative()
+    set norelativenumber
+    set number
+endfunc
+
 function! NumberToggle()
     if(&relativenumber == 1)
-      set norelativenumber
+        :call NoRelative()
     else
-      set relativenumber
+        set relativenumber
     endif
 endfunc
 
-set relativenumber
 nnoremap <silent> <C-a> :call NumberToggle()<CR>
 
-au FocusLost * :set norelativenumber
+au FocusLost * :call NoRelative()
 au FocusGained * :set relativenumber
-au InsertEnter * :set norelativenumber
+au InsertEnter * :call NoRelative()
 au InsertLeave * :set relativenumber
 
 " A buffer becomes hidden when it is abandoned
