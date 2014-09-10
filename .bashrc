@@ -5,6 +5,10 @@ if [ -f ~/.git-completion.bash ]; then
   source ~/.git-completion.bash
 fi
 
-eval `dircolors ~/.dir_colors`
-
-alias ls="ls -a --color"
+if [ "$(uname)" == "Darwin" ]
+then
+    alias ls="ls -a -G"
+else
+    eval `dircolors ~/.dir_colors`
+    alias ls="ls -a --color"
+fi
