@@ -10,3 +10,9 @@
 [submodule ".vim/bundle/python-mode"]
 	path = .vim/bundle/python-mode
 	url = https://github.com/klen/python-mode.git
+[submodule ".bash/osx-terminal.app-colors-solarized"]
+	path = .bash/osx-terminal.app-colors-solarized
+	url = https://github.com/tomislav/osx-terminal.app-colors-solarized.git
+[submodule "terminal_libraries"]
+	path = terminal_libraries
+	url = https://github.com/tomislav/osx-terminal.app-colors-solarized.git
