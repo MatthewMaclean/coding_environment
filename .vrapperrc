@@ -1,61 +1,11 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => VIM user interface
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Cursor stuff
-set ttyfast
-set laststatus=2
-set ruler
-
 " Show line number
 set number
-set relativenumber
-
-function! NoRelative()
-    set norelativenumber
-    set number
-endfunc
-
-function! NumberToggle()
-    if(&relativenumber == 1)
-        :call NoRelative()
-    else
-        set relativenumber
-    endif
-endfunc
-
-nnoremap <silent> <C-a> :call NumberToggle()<CR>
-
-au FocusLost * :call NoRelative()
-au FocusGained * :set relativenumber
-au InsertEnter * :call NoRelative()
-au InsertLeave * :set relativenumber
-
-" A buffer becomes hidden when it is abandoned
-set hid
-
-" Configure backspace so it acts as it should act
-set backspace=eol,start,indent
-set whichwrap+=<,>,h,l
 
 " Highlight search results
 set hlsearch
-
-" For regular expressions turn magic on
-set magic
-
-" Show matching brackets when text indicator is over them
-set showmatch
-" How many tenths of a second to blink when matching brackets
-set mat=2
-
-" No annoying sound on errors
-set noerrorbells
-set novisualbell
-set t_vb=
-set tm=500
-
-" set window title
-set title
 
 " swap : and ;
 map  ;  :
@@ -65,50 +15,11 @@ nnoremap  :w  :w<CR>
 nnoremap  :q  :q<CR>
 nnoremap  :wq  :wq<CR>
 
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Colors and Fonts
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Enable syntax highlighting
-syntax enable
-set hlsearch
-set background=dark
-
-"let g:solarized_termcolors=16
-let g:solarized_termtrans=1
-colorscheme solarized
-
-" Set utf8 as standard encoding and en_US as the standard language
-set encoding=utf8
-
-" Use Unix as the standard file type
-set ffs=unix,dos,mac
-
-" Set colour column at 80 for line length "
-set colorcolumn=80
-
-" Cause search to blink upon n
-nnoremap <silent> n   n:call HLNext(0.05)<cr>
-highlight WhiteOnRed ctermbg=black
-function! HLNext (blinktime)
-    let [bufnum, lnum, col, off] = getpos('.')
-    let matchlen = strlen(matchstr(strpart(getline('.'),col-1),@/))
-    let target_pat = '\c\%#'.@/
-    let ring = matchadd('WhiteOnRed', target_pat, 101)
-    redraw
-    exec 'sleep ' . float2nr(a:blinktime * 1000) . 'm'
-    call matchdelete(ring)
-    redraw
-endfunction
-
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Text, tab and indent related
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Use spaces instead of tabs
 set expandtab
-
-" Be smart when using tabs
-set smarttab
 
 " 1 tab == 4 spaces
 set shiftwidth=4
@@ -116,18 +27,9 @@ set tabstop=4
 
 set ai "Auto indent
 set si "Smart indent
-set wrap "Wrap lines
-
-" Remove trailing whitespace on save
-autocmd BufWritePre * :%s/\s\+$//e
 
 " map sort function to a key
 vnoremap <Leader>s :sort<CR>
-
-" highlight tabs and non-breaking spaces
-exec "set listchars=tab:\uBB\uBB,nbsp:~"
-set list
-
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Moving around, tabs, windows and buffers
@@ -138,11 +40,28 @@ set clipboard=unnamed
 " Make sure line isn't at edge of window
 set scrolloff=5
 
-" Return to last edit position when opening files (You want this!)
-autocmd BufReadPost *
-     \ if line("'\"") > 0 && line("'\"") <= line("$") |
-     \   exe "normal! g`\"" |
-     \ endif
-
 " Dont change buffer when replace-pasting
 vnoremap p "_c<C-r>"<Esc>
+
+" Move vim windows
+nnoremap <Up> :wincmd k<CR>
+nnoremap <Down> :wincmd j<CR>
+nnoremap <Left> :wincmd h<CR>
+nnoremap <Right> :wincmd l<CR>
+
+" Up down alternatives
+vnoremap <C-Up> <Up>
+vnoremap <C-Down> <Down>
+vnoremap <C-Left> <Left>
+vnoremap <C-Right> <Right>
+
+" tab
+nnoremap <Tab> :tabn<CR>
+"" <Leader><Tab>
+nnoremap '<Tab> :tabp<CR>
+
+" window
+"" <leader>h
+nnoremap 'h <C-W>s<CR>
+"" <leader>v
+nnoremap 'v <C-W>v<CR>

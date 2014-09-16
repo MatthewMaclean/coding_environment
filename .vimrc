@@ -71,7 +71,6 @@ nnoremap  :wq  :wq<CR>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Enable syntax highlighting
 syntax enable
-set hlsearch
 set background=dark
 
 "let g:solarized_termcolors=16
@@ -186,8 +185,8 @@ noremap <leader>v  <C-w>v<CR>
 " tab
 nnoremap <C-t> :tabedit %<CR>
 nnoremap <C-w> :tabc<CR>
-nnoremap <leader><Tab> :tabn<CR>
-nnoremap <leader><S-Tab> :tabp<CR>
+nnoremap <Tab> :tabn<CR>
+nnoremap <leader><Tab> :tabp<CR>
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
