@@ -1,67 +1,27 @@
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => VIM user interface
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Show line number
 set number
-
-" Highlight search results
 set hlsearch
-
-" swap : and ;
-map  ;  :
-
-" faster save and quit
-nnoremap  :w  :w<CR>
-nnoremap  :q  :q<CR>
-nnoremap  :wq  :wq<CR>
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Text, tab and indent related
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Use spaces instead of tabs
+map ; :
+nnoremap :w :w<CR>
+nnoremap :q :q<CR>
+nnoremap :wq :wq<CR>
 set expandtab
-
-" 1 tab == 4 spaces
 set shiftwidth=4
 set tabstop=4
-
 set ai "Auto indent
 set si "Smart indent
-
-" map sort function to a key
-vnoremap <Leader>s :sort<CR>
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Moving around, tabs, windows and buffers
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Copy paste
+vnoremap 's :sort<CR>
 set clipboard=unnamed
-
-" Make sure line isn't at edge of window
 set scrolloff=5
-
-" Dont change buffer when replace-pasting
 vnoremap p "_c<C-r>"<Esc>
-
-" Move vim windows
 nnoremap <Up> :wincmd k<CR>
 nnoremap <Down> :wincmd j<CR>
 nnoremap <Left> :wincmd h<CR>
 nnoremap <Right> :wincmd l<CR>
-
-" Up down alternatives
 vnoremap <C-Up> <Up>
 vnoremap <C-Down> <Down>
 vnoremap <C-Left> <Left>
 vnoremap <C-Right> <Right>
-
-" tab
+noremap 'h <C-w>s<CR>
+noremap 'v <C-w>v<CR>
 nnoremap <Tab> :tabn<CR>
-"" <Leader><Tab>
 nnoremap '<Tab> :tabp<CR>
-
-" window
-"" <leader>h
-nnoremap 'h <C-W>s<CR>
-"" <leader>v
-nnoremap 'v <C-W>v<CR>

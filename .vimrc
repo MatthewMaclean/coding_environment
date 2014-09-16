@@ -7,6 +7,7 @@ set laststatus=2
 set ruler
 
 " Show line number
+" (ecl)
 set number
 set relativenumber
 
@@ -37,7 +38,7 @@ set hid
 set backspace=eol,start,indent
 set whichwrap+=<,>,h,l
 
-" Highlight search results
+" Highlight search results (ecl)
 set hlsearch
 
 " For regular expressions turn magic on
@@ -57,10 +58,10 @@ set tm=500
 " set window title
 set title
 
-" swap : and ;
+" make : more accessible (ecl)
 map  ;  :
 
-" faster save and quit
+" faster save and quit (ecl)
 nnoremap  :w  :w<CR>
 nnoremap  :q  :q<CR>
 nnoremap  :wq  :wq<CR>
@@ -103,24 +104,27 @@ endfunction
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Text, tab and indent related
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Use spaces instead of tabs
+" Use spaces instead of tabs (ecl)
 set expandtab
 
 " Be smart when using tabs
 set smarttab
 
-" 1 tab == 4 spaces
+" 1 tab == 4 spaces (ecl)
 set shiftwidth=4
 set tabstop=4
 
+" Better indents on newline (ecl)
 set ai "Auto indent
 set si "Smart indent
+
+" Wrap when a line is too long
 set wrap "Wrap lines
 
 " Remove trailing whitespace on save
 autocmd BufWritePre * :%s/\s\+$//e
 
-" map sort function to a key
+" map sort function to a key (ecl)
 vnoremap <Leader>s :sort<CR>
 
 " highlight tabs and non-breaking spaces
@@ -131,10 +135,10 @@ set list
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Moving around, tabs, windows and buffers
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Copy paste
+" Copy paste (ecl)
 set clipboard=unnamed
 
-" Make sure line isn't at edge of window
+" Make sure line isn't at edge of window (ecl)
 set scrolloff=5
 
 " Treat long lines as break lines (useful when moving around in them)
@@ -155,7 +159,7 @@ set undofile
 set undolevels=1000 " max
 set undoreload=10000 " max number of lines to save
 
-" Dont change buffer when replace-pasting
+" Dont change buffer when replace-pasting (ecl)
 vnoremap p "_c<C-r>"<Esc>
 
 let mapleader="'"
@@ -166,27 +170,29 @@ for i in range(1, 100)
     exe "noremap <leader>t" . i . " " . i . "gt<CR>"
 endfor
 
-" Move vim windows
+" Move vim windows (ecl)
 nnoremap <silent> <Up> :wincmd k<CR>
 nnoremap <silent> <Down> :wincmd j<CR>
 nnoremap <silent> <Left> :wincmd h<CR>
 nnoremap <silent> <Right> :wincmd l<CR>
 
-" Up down alternatives
+" Up down alternatives (ecl)
 vnoremap <silent> <C-Up> <Up>
 vnoremap <silent> <C-Down> <Down>
 vnoremap <silent> <C-Left> <Left>
 vnoremap <silent> <C-Right> <Right>
 
-" window
-noremap <leader>h  <C-w>s<CR>
-noremap <leader>v  <C-w>v<CR>
+" window (ecl)
+noremap <silent> <Leader>h  <C-w>s<CR>
+noremap <silent> <Leader>v  <C-w>v<CR>
 
 " tab
 nnoremap <C-t> :tabedit %<CR>
 nnoremap <C-w> :tabc<CR>
+" (ecl)
 nnoremap <Tab> :tabn<CR>
-nnoremap <leader><Tab> :tabp<CR>
+" (ecl)
+nnoremap <Leader><Tab> :tabp<CR>
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
