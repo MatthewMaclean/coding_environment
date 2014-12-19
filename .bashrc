@@ -8,7 +8,11 @@ fi
 if [ "$(uname)" == "Darwin" ]
 then
     alias ls="ls -a -G"
+    export LC_CTYPE=C
+    export LANG=C
 else
     eval `dircolors ~/.dir_colors`
     alias ls="ls -a --color"
 fi
+
+export PS1="\w \$"

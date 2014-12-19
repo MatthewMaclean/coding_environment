@@ -1,3 +1,5 @@
+let mapleader="'"
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => VIM user interface
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -59,12 +61,12 @@ set tm=500
 set title
 
 " make : more accessible (ecl)
-map  ;  :
+map ;  :
 
 " faster save and quit (ecl)
-nnoremap  :w  :w<CR>
-nnoremap  :q  :q<CR>
-nnoremap  :wq  :wq<CR>
+nnoremap :w :w<CR>
+nnoremap :q :q<CR>
+nnoremap :wq :wq<CR>
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -114,6 +116,18 @@ set smarttab
 set shiftwidth=4
 set tabstop=4
 
+function! TabSizeToggle()
+    if(&shiftwidth == 2)
+        set shiftwidth=4
+        set tabstop=4
+    else
+        set shiftwidth=2
+        set tabstop=2
+    endif
+endfunc
+
+nnoremap <silent> <Leader>t :call TabSizeToggle()<CR>
+
 " Better indents on newline (ecl)
 set ai "Auto indent
 set si "Smart indent
@@ -137,6 +151,7 @@ set list
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Copy paste (ecl)
 set clipboard=unnamed
+nnoremap <Leader>p :set paste!<CR>
 
 " Make sure line isn't at edge of window (ecl)
 set scrolloff=5
@@ -162,7 +177,6 @@ set undoreload=10000 " max number of lines to save
 " Dont change buffer when replace-pasting (ecl)
 vnoremap p "_c<C-r>"<Esc>
 
-let mapleader="'"
 for i in range(1, 100)
     " Make switching buffer easier to type
     exe "noremap <leader>" . i . " :b" . i . "<CR>"
@@ -187,12 +201,12 @@ noremap <silent> <Leader>h  <C-w>s<CR>
 noremap <silent> <Leader>v  <C-w>v<CR>
 
 " tab
-nnoremap <C-t> :tabedit %<CR>
-nnoremap <C-w> :tabc<CR>
+nnoremap <silent> <C-t> :tabedit %<CR>
+nnoremap <silent> <C-w> :tabc<CR>
 " (ecl)
-nnoremap <Tab> :tabn<CR>
+nnoremap <silent> <Tab> :tabn<CR>
 " (ecl)
-nnoremap <Leader><Tab> :tabp<CR>
+nnoremap <silent> <Leader><Tab> :tabp<CR>
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
