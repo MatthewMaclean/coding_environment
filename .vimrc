@@ -43,6 +43,9 @@ set whichwrap+=<,>,h,l
 " Highlight search results (ecl)
 set hlsearch
 
+" Start searching as you type
+set incsearch
+
 " For regular expressions turn magic on
 set magic
 
@@ -74,14 +77,13 @@ nnoremap :wq :wq<CR>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Enable syntax highlighting
 syntax enable
-set background=dark
 
 "let g:solarized_termcolors=16
 let g:solarized_termtrans=1
 colorscheme solarized
 
 " Set utf8 as standard encoding and en_US as the standard language
-set encoding=utf8
+set encoding=utf-8
 
 " Use Unix as the standard file type
 set ffs=unix,dos,mac
@@ -106,10 +108,13 @@ endfunction
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Text, tab and indent related
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Indentation strategy is based upon file type
+filetype plugin indent on
+
 " Use spaces instead of tabs (ecl)
 set expandtab
 
-" Be smart when using tabs
+" You can delete an entire tab rather than the individual spaces
 set smarttab
 
 " 1 tab == 4 spaces (ecl)
@@ -127,10 +132,6 @@ function! TabSizeToggle()
 endfunc
 
 nnoremap <silent> <Leader>t :call TabSizeToggle()<CR>
-
-" Better indents on newline (ecl)
-set ai "Auto indent
-set si "Smart indent
 
 " Wrap when a line is too long
 set wrap "Wrap lines
@@ -213,7 +214,6 @@ nnoremap <silent> <Leader><Tab> :tabp<CR>
 " => Plugins
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 execute pathogen#infect()
-filetype plugin indent on
 
 " buftabs configuration
 let g:buftabs_only_basename=1

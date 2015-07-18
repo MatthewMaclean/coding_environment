@@ -13,6 +13,6 @@
 [submodule ".bash/osx-terminal.app-colors-solarized"]
 	path = .bash/osx-terminal.app-colors-solarized
 	url = https://github.com/tomislav/osx-terminal.app-colors-solarized.git
-[submodule "terminal_libraries"]
-	path = terminal_libraries
-	url = https://github.com/tomislav/osx-terminal.app-colors-solarized.git
+[submodule "solarized"]
+	path = solarized
+	url = git@github.com:altercation/solarized.git
