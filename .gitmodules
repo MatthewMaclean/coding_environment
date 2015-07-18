@@ -1,18 +1,9 @@
-[submodule ".vim/bundle/supertab"]
-	path = .vim/bundle/supertab
-	url = https://github.com/ervandew/supertab.git
-[submodule ".vim/bundle/nerdtree"]
-	path = .vim/bundle/nerdtree
-	url = https://github.com/scrooloose/nerdtree.git
-[submodule ".vim/plugin/buftabs"]
-	path = .vim/plugin/buftabs
-	url = https://github.com/MatthewMaclean/buftabs.git
-[submodule ".vim/bundle/python-mode"]
-	path = .vim/bundle/python-mode
-	url = https://github.com/klen/python-mode.git
 [submodule ".bash/osx-terminal.app-colors-solarized"]
 	path = .bash/osx-terminal.app-colors-solarized
 	url = https://github.com/tomislav/osx-terminal.app-colors-solarized.git
 [submodule "solarized"]
 	path = solarized
 	url = git@github.com:altercation/solarized.git
+[submodule "/Users/mmaclean/.vim/bundle/vundle"]
+	path = /Users/mmaclean/.vim/bundle/vundle
+	url = https://github.com/gmarik/vundle.git

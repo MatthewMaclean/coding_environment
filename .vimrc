@@ -1,3 +1,10 @@
+" Required for vundle
+set nocompatible
+filetype off
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+
+" Sets leader key
 let mapleader="'"
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -213,7 +220,11 @@ nnoremap <silent> <Leader><Tab> :tabp<CR>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Plugins
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-execute pathogen#infect()
+Plugin 'gmarik/vundle'
+Plugin 'scrooloose/nerdtree'
+Plugin 'klen/python-mode'
+Plugin 'ervandew/supertab'
+Plugin 'MatthewMaclean/buftabs'
 
 " buftabs configuration
 let g:buftabs_only_basename=1
@@ -239,5 +250,8 @@ let g:pymode_breakpoint=0
 let g:pymode_rope=0
 
 " scala syntax highlighting
-au BufRead,BufNewFile *.scala set filetype=scala
+au BufRead,BufNewFile *.scala set iletype=scala
 au! Syntax scala source ~/.vim/syntax/scala.vim
+
+" Turn filetype back on
+filetype on
