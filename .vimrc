@@ -198,12 +198,6 @@ nnoremap <silent> <Down> :wincmd j<CR>
 nnoremap <silent> <Left> :wincmd h<CR>
 nnoremap <silent> <Right> :wincmd l<CR>
 
-" Up down alternatives (ecl)
-vnoremap <silent> <C-Up> <Up>
-vnoremap <silent> <C-Down> <Down>
-vnoremap <silent> <C-Left> <Left>
-vnoremap <silent> <C-Right> <Right>
-
 " window (ecl)
 noremap <silent> <Leader>h  <C-w>s<CR>
 noremap <silent> <Leader>v  <C-w>v<CR>
@@ -220,11 +214,12 @@ nnoremap <silent> <Leader><Tab> :tabp<CR>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Plugins
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-Plugin 'gmarik/vundle'
-Plugin 'scrooloose/nerdtree'
-Plugin 'klen/python-mode'
-Plugin 'ervandew/supertab'
 Plugin 'MatthewMaclean/buftabs'
+Plugin 'ervandew/supertab'
+Plugin 'gmarik/vundle'
+Plugin 'kien/ctrlp.vim'
+Plugin 'klen/python-mode'
+Plugin 'scrooloose/nerdtree'
 
 " buftabs configuration
 let g:buftabs_only_basename=1
@@ -248,6 +243,12 @@ let g:pymode_motion=0
 let g:pymode_doc=0
 let g:pymode_breakpoint=0
 let g:pymode_rope=0
+
+" ctrlp configuration
+let g:ctrlp_map = '<Leader>f'
+set wildignore+=*.swp,*.swo
+" Doesn't look at files included in .gitignore
+let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
 
 " scala syntax highlighting
 au BufRead,BufNewFile *.scala set iletype=scala
