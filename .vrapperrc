@@ -1,5 +1,6 @@
 set number
 set hlsearch
+set incsearch
 map ; :
 nnoremap :w :w<CR>
 nnoremap :q :q<CR>
@@ -7,20 +8,15 @@ nnoremap :wq :wq<CR>
 set expandtab
 set shiftwidth=4
 set tabstop=4
-set ai "Auto indent
-set si "Smart indent
 vnoremap 's :sort<CR>
 set clipboard=unnamed
+nnoremap 'p :set paste!<CR>
 set scrolloff=5
 vnoremap p "_c<C-r>"<Esc>
 nnoremap <Up> :wincmd k<CR>
 nnoremap <Down> :wincmd j<CR>
 nnoremap <Left> :wincmd h<CR>
 nnoremap <Right> :wincmd l<CR>
-vnoremap <C-Up> <Up>
-vnoremap <C-Down> <Down>
-vnoremap <C-Left> <Left>
-vnoremap <C-Right> <Right>
 noremap 'h <C-w>s<CR>
 noremap 'v <C-w>v<CR>
 nnoremap <Tab> :tabn<CR>

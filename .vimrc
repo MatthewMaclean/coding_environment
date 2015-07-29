@@ -7,6 +7,8 @@ call vundle#rc()
 " Sets leader key
 let mapleader="'"
 
+nnoremap <silent> <Leader>r :redraw!<CR>
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => VIM user interface
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -50,7 +52,7 @@ set whichwrap+=<,>,h,l
 " Highlight search results (ecl)
 set hlsearch
 
-" Start searching as you type
+" Start searching as you type (ecl)
 set incsearch
 
 " For regular expressions turn magic on
@@ -141,7 +143,7 @@ endfunc
 nnoremap <silent> <Leader>t :call TabSizeToggle()<CR>
 
 " Wrap when a line is too long
-set wrap "Wrap lines
+set wrap
 
 " Remove trailing whitespace on save
 autocmd BufWritePre * :%s/\s\+$//e
@@ -150,7 +152,7 @@ autocmd BufWritePre * :%s/\s\+$//e
 vnoremap <Leader>s :sort<CR>
 
 " highlight tabs and non-breaking spaces
-exec "set listchars=tab:\uBB\uBB,nbsp:~"
+set listchars="tab:\uBB\uBB,nbsp:~"
 set list
 
 
@@ -221,12 +223,16 @@ Plugin 'kien/ctrlp.vim'
 Plugin 'klen/python-mode'
 Plugin 'scrooloose/nerdtree'
 
+" youcompleteme
+"let g:ycm_filetype_blacklist = { 'python' : 1 }
+
 " buftabs configuration
 let g:buftabs_only_basename=1
 let g:buftabs_in_statusline=1
 let g:buftabs_marker_modified='[+]'
 let g:buftabs_marker_start='<'
 let g:buftabs_marker_end='>'
+nnoremap <Leader>b :ls<CR>
 
 " nerdtree configuration
 noremap <C-n> :NERDTreeToggle<CR>
@@ -243,9 +249,11 @@ let g:pymode_motion=0
 let g:pymode_doc=0
 let g:pymode_breakpoint=0
 let g:pymode_rope=0
+let g:pymode_options_max_line_length=100
 
 " ctrlp configuration
 let g:ctrlp_map = '<Leader>f'
+let g:ctrlp_cmd = 'CtrlPMixed'
 set wildignore+=*.swp,*.swo
 " Doesn't look at files included in .gitignore
 let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
