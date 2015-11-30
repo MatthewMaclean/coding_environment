@@ -8,3 +8,5 @@
 [core]
 	excludesfile = /home/Matt/.gitignore
 	editor = vim
+[merge]
+	conflictstyle = diff3
