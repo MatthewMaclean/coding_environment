@@ -253,7 +253,6 @@ let g:pymode_options_max_line_length=100
 
 " ctrlp configuration
 let g:ctrlp_map = '<Leader>f'
-let g:ctrlp_cmd = 'CtrlPMixed'
 set wildignore+=*.swp,*.swo
 " Doesn't look at files included in .gitignore
 let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']

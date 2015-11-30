@@ -1,5 +1,5 @@
 set number
-set hlsearch
+set nohlsearch
 set incsearch
 map ; :
 nnoremap :w :w<CR>
@@ -15,8 +15,8 @@ set scrolloff=5
 vnoremap p "_c<C-r>"<Esc>
 nnoremap <Up> :wincmd k<CR>
 nnoremap <Down> :wincmd j<CR>
-nnoremap <Left> :wincmd h<CR>
-nnoremap <Right> :wincmd l<CR>
+nnoremap <Left> :tabprevious<CR>
+nnoremap <Right> :tabnext<CR>
 noremap 'h <C-w>s<CR>
 noremap 'v <C-w>v<CR>
 nnoremap <Tab> :tabn<CR>
