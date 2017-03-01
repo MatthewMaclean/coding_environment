@@ -258,8 +258,8 @@ set wildignore+=*.swp,*.swo
 let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
 
 " scala syntax highlighting
-au BufRead,BufNewFile *.scala set iletype=scala
-au! Syntax scala source ~/.vim/syntax/scala.vim
+" au BufRead,BufNewFile *.scala set iletype=scala
+" au! Syntax scala source ~/.vim/syntax/scala.vim
 
 " Turn filetype back on
 filetype on

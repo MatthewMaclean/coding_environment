@@ -4,3 +4,6 @@
 [submodule ".vim/bundle/vundle"]
 	path = .vim/bundle/vundle
 	url = https://github.com/gmarik/vundle.git
+[submodule "intellij-colors-solarized"]
+	path = intellij-colors-solarized
+	url = https://github.com/jkaving/intellij-colors-solarized.git

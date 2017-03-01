@@ -4,7 +4,7 @@
 [credential]
 	helper = cache
 [color]
-	diff = always
+	diff = auto
 [core]
 	excludesfile = /home/Matt/.gitignore
 	editor = vim
@@ -13,3 +13,5 @@
 [diff]
 	algorithm = histogram
 	renames = true
+[http]
+	sslVerify = false
