@@ -14,7 +14,7 @@ Run :BundleInstall in vim to install plugins
 
 Import colorscheme from terminal_libraries into terminal, then set as default.
 
-https://pqrs.org/osx/karabiner/seil.html.en
+https://github.com/tekezo/Karabiner-Elements/blob/master/README.md
 - remap caps lock to 80
 
 https://msol.io/blog/tech/work-more-efficiently-on-your-mac-for-developers/#karabiner
