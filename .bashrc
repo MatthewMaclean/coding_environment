@@ -33,6 +33,14 @@ function sshp () {
     ssh -t $1 "sudo su - palantir"
 }
 
+function lock_update () {
+    ./gradlew generateLock saveLock idea;
+}
+
+function conjure_compile () {
+    ./gradlew compileConjureJavaServer compileConjureTypescriptClient;
+}
+
 function replace_recursive () {
     find .  \( -name '.git' \) -prune -o -type f -print0 | xargs -0 sed -i '' -e 's/'$1'/'$2'/g'
 }
@@ -43,3 +51,8 @@ function stop_docker () {
 }
 
 export PS1="\w \$"
+alias vim='/usr/local/Cellar/vim/8.0.0596/bin/vim'
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
