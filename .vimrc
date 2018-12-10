@@ -195,10 +195,10 @@ for i in range(1, 100)
 endfor
 
 " Move vim windows (ecl)
-nnoremap <silent> <Up> :wincmd k<CR>
-nnoremap <silent> <Down> :wincmd j<CR>
-nnoremap <silent> <Left> :wincmd h<CR>
-nnoremap <silent> <Right> :wincmd l<CR>
+nnoremap <silent> <Up> <C-W>k<CR>
+nnoremap <silent> <Down> <C-W>j<CR>
+nnoremap <silent> <Left> <C-W>h<CR>
+nnoremap <silent> <Right> <C-W>l<CR>
 
 " window (ecl)
 noremap <silent> <Leader>h  <C-w>s<CR>
