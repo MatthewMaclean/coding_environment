@@ -1,28 +1,32 @@
 [user]
-	name = Matthew Maclean
-	email = mmaclean@palantir.com
+    name = Matthew Maclean
+    email = mmaclean@palantir.com
 [credential]
-	helper = cache
+    helper = cache
 [color]
-	diff = auto
+    diff = auto
 [core]
-	excludesfile = /home/Matt/.gitignore
-	editor = vim
+    excludesfile = /home/Matt/.gitignore
+    editor = vim
 [merge]
-	conflictstyle = diff3
-	tool = Kaleidoscope
+    conflictstyle = diff3
+    tool = Kaleidoscope
 [diff]
-	algorithm = histogram
-	renames = true
-	tool = Kaleidoscope
+    algorithm = histogram
+    renames = true
+    tool = Kaleidoscope
 [http]
-	sslVerify = false
+    sslVerify = false
 [mergetool "Kaleidoscope"]
-	cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
-	trustexitcode = true
+    cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
+    trustexitcode = true
 [difftool "Kaleidoscope"]
-	cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
+    cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
 [difftool]
-	prompt = false
+    prompt = false
 [mergetool]
-	prompt = false
+    prompt = false
+[url "git@github.palantir.build:"]
+    insteadOf = https://github.palantir.build/
+[url "git@github.com:"]
+    insteadOf = https://github.com/

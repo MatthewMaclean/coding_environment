@@ -17,7 +17,7 @@ fi
 
 alias gd="./godelw"
 
-export JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk1.8.0_121.jdk/Contents/Home"
+export JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk1.8.0_201.jdk/Contents/Home"
 
 function gitclean() {
     git branch --merged | grep -v "\*" | grep -v "master" | grep -v "develop" | xargs -n 1 git branch -d
@@ -28,6 +28,10 @@ function scpp () {
     ssh -t $2 'chmod a+r '$1'; sudo -u palantir cp '$1' /home/palantir/'
 }
 
+function rundep() {
+    ./godelw run-dep -- ensure -v
+}
+
 function deploy() {
     #scp $1 $2:
     ssh -t $2 'chmod a+r '$1'; export PATH=$PATH:/opt/palantir/skylab/deployctl/service/bin/linux-amd64; sudo -u palantir cp '$1' /home/palantir/; sudo -u palantir env "PATH=$PATH" deployctl product import /home/palantir/'$1'; sudo -u palantir rm /home/palantir/'$1
@@ -35,6 +39,10 @@ function deploy() {
 
 function sshp () {
     ssh -t $1 "sudo su - palantir"
+}
+
+function sshr () {
+    rm ~/.ssh/known_hosts; ssh $1
 }
 
 function lock_update () {
@@ -83,7 +91,6 @@ function to_gif () {
 }
 
 export PS1="\w \$"
-alias vim='/usr/local/Cellar/vim/8.0.0596/bin/vim'
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm

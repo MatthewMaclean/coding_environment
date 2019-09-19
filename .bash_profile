@@ -4,7 +4,7 @@ if [ -f "${HOME}/.bashrc" ] ; then
 fi
 export PATH=/usr/local/bin:$PATH
 export PATH="$PATH:$HOME/.yarn/bin"
-source /usr/local/dev-env/bin/profile
+#source /usr/local/dev-env/bin/profile
 export MAGICK_HOME="/Applications/ImageMagick-7.0.7"
 export PATH="$MAGICK_HOME/bin:$PATH"
 export DYLD_LIBRARY_PATH="$MAGICK_HOME/lib/"
