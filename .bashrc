@@ -17,7 +17,7 @@ fi
 
 export PS1="\w \$"
 
-alias brs =  for-each-ref --sort=committerdate refs/heads/ --format=‘%(color: red)%(committerdate:short) %(color: cyan)%(refname:short)’
+alias brs="git for-each-ref --sort=committerdate refs/heads/ --format='%(color: red)%(committerdate:short) %(color: cyan)%(refname:short)'"
 
 # UBUNTU
 #alias pbcopy='xclip -selection clipboard'
