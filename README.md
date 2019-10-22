@@ -8,7 +8,7 @@ coding_environment
 git submodule init
 git submodule update
 ```
-Run :BundleInstall in vim to install plugins
+Run `:BundleInstall` in vim to install plugins
 
 Use Input Mono Compressed Regular from: http://input.fontbureau.com
 
