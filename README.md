@@ -4,10 +4,10 @@ coding_environment
 # Installation
 
 ## General
-
-~/git submodule init
-~/git submodule update
-
+```
+git submodule init
+git submodule update
+```
 Run :BundleInstall in vim to install plugins
 
 ## Mac
