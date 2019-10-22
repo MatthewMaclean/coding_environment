@@ -29,3 +29,8 @@ install xclip `sudo apt-get install xclip -y` and then uncomment alias in .bashr
 alias pbcopy='xclip -selection clipboard'
 alias pbpaste='xclip -selection clipboard -o'
 ```
+
+```
+sudo apt-get install dconf-tools
+dconf write /org/gnome/desktop/input-sources/xkb-options "['caps:escape']"
+```
