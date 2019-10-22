@@ -10,6 +10,8 @@ git submodule update
 ```
 Run :BundleInstall in vim to install plugins
 
+Use Input Mono Compressed Regular from: http://input.fontbureau.com
+
 ## Mac
 
 Import colorscheme from terminal_libraries into terminal, then set as default.
@@ -19,8 +21,6 @@ Import colorscheme from terminal_libraries into terminal, then set as default.
 
 Alfred
 https://github.com/gharlan/alfred-github-workflow
-
-http://input.fontbureau.com
 
 ## Ubuntu
 
