@@ -24,11 +24,7 @@ https://github.com/gharlan/alfred-github-workflow
 
 ## Ubuntu
 
-install xclip `sudo apt-get install xclip -y` and then uncomment alias in .bashrc
-```
-alias pbcopy='xclip -selection clipboard'
-alias pbpaste='xclip -selection clipboard -o'
-```
+install xclip `sudo apt-get install xclip -y`
 
 ```
 sudo apt-get install dconf-tools
