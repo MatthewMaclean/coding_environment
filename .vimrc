@@ -9,9 +9,45 @@ let mapleader="'"
 
 nnoremap <silent> <Leader>r :redraw!<CR>
 
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Colors and Fonts
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Enable syntax highlighting
+syntax enable
+
+"let g:solarized_termcolors=16
+let g:solarized_termtrans=1
+colorscheme solarized
+
+" Set utf8 as standard encoding and en_US as the standard language
+set encoding=utf-8
+
+" Use Unix as the standard file type
+set ffs=unix,dos,mac
+
+" Set colour column at 80 for line length "
+set colorcolumn=80
+highlight ColorColumn ctermbg=0 guibg=lightgrey
+
+" Cause search to blink upon n
+nnoremap <silent> n   n:call HLNext(0.05)<cr>
+highlight WhiteOnRed ctermbg=black
+function! HLNext (blinktime)
+    let [bufnum, lnum, col, off] = getpos('.')
+    let matchlen = strlen(matchstr(strpart(getline('.'),col-1),@/))
+    let target_pat = '\c\%#'.@/
+    let ring = matchadd('WhiteOnRed', target_pat, 101)
+    redraw
+    exec 'sleep ' . float2nr(a:blinktime * 1000) . 'm'
+    call matchdelete(ring)
+    redraw
+endfunction
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => VIM user interface
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+set term=screen-256color
+
 " Cursor stuff
 set ttyfast
 set laststatus=2
@@ -21,6 +57,7 @@ set ruler
 " (ecl)
 set number
 set relativenumber
+highlight LineNr ctermbg=0 guibg=lightgrey
 
 function! NoRelative()
     set norelativenumber
@@ -79,40 +116,6 @@ map ;  :
 nnoremap :w :w<CR>
 nnoremap :q :q<CR>
 nnoremap :wq :wq<CR>
-
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Colors and Fonts
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Enable syntax highlighting
-syntax enable
-
-"let g:solarized_termcolors=16
-let g:solarized_termtrans=1
-colorscheme solarized
-
-" Set utf8 as standard encoding and en_US as the standard language
-set encoding=utf-8
-
-" Use Unix as the standard file type
-set ffs=unix,dos,mac
-
-" Set colour column at 80 for line length "
-set colorcolumn=80
-
-" Cause search to blink upon n
-nnoremap <silent> n   n:call HLNext(0.05)<cr>
-highlight WhiteOnRed ctermbg=black
-function! HLNext (blinktime)
-    let [bufnum, lnum, col, off] = getpos('.')
-    let matchlen = strlen(matchstr(strpart(getline('.'),col-1),@/))
-    let target_pat = '\c\%#'.@/
-    let ring = matchadd('WhiteOnRed', target_pat, 101)
-    redraw
-    exec 'sleep ' . float2nr(a:blinktime * 1000) . 'm'
-    call matchdelete(ring)
-    redraw
-endfunction
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Text, tab and indent related
